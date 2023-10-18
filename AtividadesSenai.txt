@@ -1,0 +1,169 @@
+Émer Nobuyuki Namiki	
+
+1- Console.WriteLine("Escreva 2 números:");
+
+int n1 = Convert.ToInt32(Console.ReadLine());
+int n2 = Convert.ToInt32(Console.ReadLine());
+
+if (n1 > n2)
+{
+	Console.WriteLine($"{n1}");
+}
+else
+{
+	Console.WriteLine($"{n2}");
+}
+
+2- Console.WriteLine("Escreva 3 números:");
+
+int n1 = Convert.ToInt32(Console.ReadLine());
+int n2 = Convert.ToInt32(Console.ReadLine());
+int n3 = Convert.ToInt32(Console.ReadLine());
+
+if (n1 > n2 && n1 > n3 && n2 > n3)
+{
+	Console.WriteLine($"O número maior é: {n1}\n" + $"E o menor é: {n3}");
+}
+else if (n1 > n2 && n1 > n3 && n3 > n2)
+{
+	Console.WriteLine($"O número maior é: {n1}\n" + $"E o menor é: {n2}");
+}
+else if (n2 > n1 && n2 > n3 && n3 > n1)
+{
+	Console.WriteLine($"O número maior é: {n2}\n" + $"E o menor é: {n1}");
+}
+else if (n2 > n1 && n2 > n3 && n1 > n3)
+{
+	Console.WriteLine($"O número maior é: {n2}\n" + $"E o menor é: {n3}");
+}
+else if (n3 > n1 && n3 > n2 && n2 > n1)
+{
+	Console.WriteLine($"O número maior é: {n3}\n" + $"E o menor é: {n1}");
+}
+else if (n3 > n1 && n3 > n2 && n1 > n2)
+{
+	Console.WriteLine($"O número maior é: {n3}\n" + $"E o menor é: {n2}");
+}
+
+3-double nota1, nota2, media;
+
+Console.WriteLine("Digite as 2 notas do aluno:");
+nota1 = Convert.ToDouble(Console.ReadLine());
+nota2 = Convert.ToDouble(Console.ReadLine());
+
+media = (nota1 + nota2)/2;
+
+if (media >= 7 && media < 10)
+{
+	Console.WriteLine("APROVADO!");
+}
+else if (media == 10)
+{
+	Console.WriteLine("Aprovado com distinção");
+}
+else if (media < 7)
+{
+	Console.WriteLine("Reprovado!");
+}
+
+4-Console.WriteLine("Escreva os preços dos 3 produtos:");
+
+int preco1 = Convert.ToInt32(Console.ReadLine());
+int preco2 = Convert.ToInt32(Console.ReadLine());
+int preco3 = Convert.ToInt32(Console.ReadLine());
+
+
+if (preco1 < preco2 && preco1 < preco3 && preco2 < preco3)
+{
+	Console.WriteLine($"O produto com o preço: {preco1} é o mais barato");
+}
+else if (preco1 < preco2 && preco1 < preco3 && preco3 < preco2)
+{
+	Console.WriteLine($"O produto com o preço: {preco1} é o mais barato");
+}
+else if (preco2 < preco1 && preco2 < preco3 && preco3 < preco1)
+{
+	Console.WriteLine($"O produto com o preço: {preco2} é o mais barato");
+}
+else if (preco2 < preco1 && preco2 < preco3 && preco1 < preco3)
+{
+	Console.WriteLine($"O produto com o preço: {preco2} é o mais barato");
+}
+else if (preco3 < preco1 && preco3 < preco2 && preco1 < preco3)
+{
+	Console.WriteLine($"O produto com o preço: {preco3} é o mais barato");
+}
+else if (preco3 < preco1 && preco3 < preco2 && preco3 < preco1)
+{
+	Console.WriteLine($"O produto com o preço: {preco3} é o mais barato");
+}
+
+5- Console.WriteLine("Digite um número");
+int n1 = Convert.ToInt32(Console.ReadLine());	
+if (n1 %2 == 0)
+{
+	Console.WriteLine("Este número é par!");
+}else 
+{
+	Console.WriteLine("Este número é ímpar");
+}
+
+6-Console.WriteLine("Para doar sangue digite a sua idade, por favor!");
+int idade = Convert.ToInt32(Console.ReadLine());
+
+if (idade >= 18 && idade <= 67)
+{
+	Console.WriteLine("Você está apto para doar sangue!");
+}
+else
+{
+	Console.WriteLine("Você não pode doar sangue!");
+}
+
+7- int A = 10;
+int B = 20;
+int aux = 0;
+
+aux = B;
+B = A;
+A = aux;
+
+Console.WriteLine($"{A} e {B}");
+
+8- double salario, comissao, totalvendas, carrosvendidos, salariofinal, bonus;
+
+Console.WriteLine("Escreva o seu Salário:");
+salario = Convert.ToDouble(Console.ReadLine());
+
+Console.WriteLine("Escreva o número de carros vendidos:");
+carrosvendidos = Convert.ToDouble(Console.ReadLine());
+
+Console.WriteLine("Escreva o total de vendas:");
+totalvendas = Convert.ToDouble(Console.ReadLine());
+
+Console.WriteLine("Escreva o total de vendas:");
+comissao = Convert.ToDouble(Console.ReadLine());
+
+comissao = comissao * carrosvendidos;
+bonus = totalvendas * 0.05 ;
+
+salariofinal = comissao + salario + bonus;
+
+
+Console.WriteLine($"Seu salario final ficou no valor de: {salariofinal} reais");
+
+
+Console.WriteLine($"Seu salario final ficou no valor de: {salariofinal} reais");
+
+9- Console.WriteLine("Digite a Temperatura em Fahrenheit para tranformar em Celsius:");
+double F = Convert.ToDouble(Console.ReadLine());
+double C = (F - 32) / 1.8 ;
+Console.WriteLine($"°F{F} = °C{C} ");
+
+10- Console.WriteLine("Digite a velocidade em M/s para converter em Km/h");
+double ms = Convert.ToDouble(Console.ReadLine());
+double km = ms * 3.6;
+Console.WriteLine($"{ms}m/s para {km}km/h");
+
+
+
