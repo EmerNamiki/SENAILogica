@@ -1,0 +1,12 @@
+using static System.Console;
+
+inicio:
+Clear();
+
+string[] nomes = { "Emer", "João", "Cleber" };
+foreach(string pessoa in nomes)
+{
+	WriteLine("{0}", pessoa);
+}
+ReadKey();
+goto inicio;
