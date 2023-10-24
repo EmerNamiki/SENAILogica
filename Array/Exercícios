@@ -1,1 +1,12 @@
+using static System.Console;
 
+inicio:
+Clear();
+
+int[] array = new int[]{ 1, 2, 3, 4, 5, 6};
+foreach(int item in array)
+{
+WriteLine(item);
+}
+ReadKey();
+goto inicio;
