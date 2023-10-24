@@ -1,0 +1,14 @@
+using static System.Console;
+
+WriteLine("Digite um valor:");
+int num = Convert.ToInt32(ReadLine());
+int final = num + 100;
+Clear();
+
+for (int i = num; i <= final; i++)
+{
+	if (i % 2 == 0) {
+	WriteLine(i);
+	}
+}	
+ReadKey();
