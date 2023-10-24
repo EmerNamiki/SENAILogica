@@ -1,0 +1,32 @@
+using static System.Console;
+
+inicio:
+Clear();
+
+string[] nomes = { "Emer", "Joao", "Pedro", "Maria", "Alexandro", "Jose", "Eduarda" };
+WriteLine();
+WriteLine("O tamanho do array é: " + nomes.Length);
+WriteLine();
+Array.Sort(nomes);
+WriteLine("Os nomes são:");
+WriteLine();
+foreach (string n in nomes)	
+{
+	WriteLine(n);
+}
+WriteLine();
+string novonome = "Kassandra";
+List<string> adnome = new List<string>(nomes.ToList());
+adnome.Add(novonome);	
+nomes = adnome.ToArray();
+WriteLine("O tamanho do array é: " + nomes.Length);
+WriteLine();
+Array.Sort(nomes);	
+WriteLine("Os nomes são:");
+foreach (string nome in nomes)
+{
+	WriteLine(nome);
+}	
+
+ReadKey();
+goto inicio;
