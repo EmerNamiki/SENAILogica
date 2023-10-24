@@ -1,0 +1,15 @@
+using static System.Console;
+
+inicio:
+Clear();
+
+int cont = 0;
+while (cont <= 150)
+{
+cont += 10;
+WriteLine("O valor do contador é: " + cont.ToString());
+	
+}
+
+ReadKey();
+goto inicio;
