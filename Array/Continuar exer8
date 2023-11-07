@@ -1,3 +1,4 @@
+// Exibir os alunos e a notas respectivamente e depois imprimir a média da turma
 using static System.Console;
 
 List<string> notas = new List<string>(10);
