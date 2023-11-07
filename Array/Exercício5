@@ -1,0 +1,32 @@
+using static System.Console;
+
+List<int>numeros = new List<Int32>(250);
+numeros.Add(6);
+numeros.Add(7);
+numeros.Add(8);
+foreach (var item in numeros)
+{
+	WriteLine(item);
+}
+WriteLine("Posiçao 0: " + numeros[0]);
+WriteLine("Número de registros: " + numeros.Count);
+WriteLine("Capacidade da lista: " + numeros.Capacity);
+numeros.Insert(1, 23);
+Int32[] novosnumeros = { 11, 22, 33 };
+numeros.InsertRange(2, novosnumeros); 
+numeros.Remove(6); 
+numeros.RemoveAt(3); 
+foreach(var item in numeros)
+{
+	WriteLine(item);
+}
+int index = numeros.IndexOf(22);
+if(index > 0)
+{
+	WriteLine("Registro na posição: " + index);
+}
+else
+{
+	WriteLine("Não encontrei nenhum registro!");
+}
+ReadKey();
