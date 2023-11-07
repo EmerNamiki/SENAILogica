@@ -1,0 +1,27 @@
+using static System.Console;
+
+List<string> notas = new List<string>(10);
+List<string> nomes = new List<string>(10);
+
+for (int i = 0; i < 10; i++)
+{
+	WriteLine("Digite o nome do aluno: ");
+	string nome = ReadLine();
+	nomes.Add(nome);
+}
+Clear();
+
+for (int i = 0; i < 10; i++)
+{
+	WriteLine("Digite a " + (i + 1) + "ª nota: " + );
+	string nota = ReadLine();
+	notas.Add(nota);
+}
+Clear();
+
+WriteLine("<<<<Alunos>>>>");
+
+foreach (string item in notas)
+{
+	WriteLine(item);
+}
