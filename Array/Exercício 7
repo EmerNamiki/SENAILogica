@@ -1,0 +1,24 @@
+using static System.Console;
+
+List<string> nomes = new List<string>(10);
+
+for (int i = 0; i<10; i++)
+{
+	Write("Digite o nome: " + (i+1) + ": ");
+	string nome = ReadLine();
+	nomes.Add(nome);
+}
+Clear();
+
+WriteLine("<<<<Lista>>>>");
+
+foreach (string nome in nomes)
+{
+WriteLine(nome);
+}
+WriteLine("");
+WriteLine("<<Primeiro/Último>>");
+WriteLine("");
+WriteLine("Posição 0: " + nomes[0]);
+WriteLine("Posição 10: " + nomes[9]);
+ReadKey();
