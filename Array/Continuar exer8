@@ -1,28 +1,34 @@
-// Exibir os alunos e a notas respectivamente e depois imprimir a média da turma
 using static System.Console;
 
-List<string> notas = new List<string>(10);
-List<string> nomes = new List<string>(10);
+List<string> alunos = new List<string>();
+List<double> notas = new List<double>();
 
 for (int i = 0; i < 10; i++)
 {
-	WriteLine("Digite o nome do aluno: ");
-	string nome = ReadLine();
-	nomes.Add(nome);
+    WriteLine($"Digite o nome do {i + 1}º aluno");
+    alunos.Add(ReadLine());
+    WriteLine($"Digite a nota do aluno");
+    notas.Add(Convert.ToDouble(ReadLine()));
 }
 Clear();
 
-for (int i = 0; i < 10; i++)
-{
-	WriteLine("Digite a " + (i + 1) + "ª nota: " + );
-	string nota = ReadLine();
-	notas.Add(nota);
-}
-Clear();
+WriteLine("((( LISTA )))");
+double soma = 0;
+double media = 0;
 
-WriteLine("<<<<Alunos>>>>");
-
-foreach (string item in notas)
+foreach (double s in notas)
 {
-	WriteLine(item);
+    soma += s;
 }
+
+media = soma / 5;
+WriteLine("((( A média dos alunos foi:" + media.ToString("f"));
+WriteLine();
+int posicao = 0;
+
+foreach (string aluno in alunos)
+{
+    WriteLine($"Aluno {posicao + 1}: {aluno} - Nota: {notas[posicao]}");
+    posicao++;
+}
+ReadKey();
