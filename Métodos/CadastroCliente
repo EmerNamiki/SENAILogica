@@ -1,0 +1,207 @@
+using System;
+using static System.Console;
+using System.Text;
+using System.IO;
+using Microsoft.VisualBasic.FileIO;
+using System.Xml;
+
+namespace ConsoleApp1
+{
+    class MainClass
+    {
+        public static void printMenu(String[] options) // MENU //
+        {
+            foreach (String option in options)
+            {
+                WriteLine(option);          // Pula linha //
+            }
+            WriteLine("Escolha a sua opção: (1 - 5)");
+        }
+        public static void Main(String[] args)
+        {
+            WriteLine(">>>>> CADASTRO DE PESSOA <<<<<");
+            String[] options = { "1 - Cadastrar", "2 - Editar", "3 - Excluir", "4 - Listar", "5 - Ler dados", "6 - Gravar dados", "7 - Sair" };
+            int option = 0;
+            while (true)
+            {
+                printMenu(options);
+                try
+                {
+                    option = Convert.ToInt32(Console.ReadLine());
+                }
+                catch (System.FormatException)
+                {
+                    WriteLine("Por favor, digite uma opção entre 1 e" + options.Length);
+                    continue;
+                }
+                catch (Exception)
+                {
+                    WriteLine("Um erro aconteceu! Tente novamente!");
+                    continue;
+                }
+                switch (option)
+                {
+                    case 1:
+                        Cadastrar();
+                        break;
+                    case 2:
+                        Editar();
+                        break;
+                    case 3:
+                        Excluir();
+                        break;
+                    case 4:
+                        Listar();
+                        break;
+                    case 5:
+                        Ler();
+                        break;
+                    case 6:
+                        Gravar();
+                        break;
+                    case 7:
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        WriteLine("Por favor, digite uma opção entre 1 e 0" + options.Length);
+                        break;
+                }
+            }
+        }
+        static List<string> nomes = new List<string>();
+        static List<int> idades = new List<int>();
+
+        private static void Cadastrar()
+        {
+            Clear();
+            WriteLine(">>>>> CADASTRAR <<<<<");
+            WriteLine();
+            WriteLine("Digite o nome da pessoa: ");
+            nomes.Add(ReadLine());
+            WriteLine("Digite a idade da pessoa: ");
+            idades.Add(Convert.ToInt32(ReadLine()));
+            WriteLine();
+        }
+        private static void Editar()
+        {
+            Clear();
+            WriteLine(">>>>> EDITAR <<<<<");
+            string nome = "";
+            WriteLine("Digite o nome que você deseja editar:");
+            nome = ReadLine();
+            int index = nomes.IndexOf(nome); // Posição do nome 
+            if (index >= 0)
+            {
+                WriteLine(">>>>> REGISTRO QUE SERÁ EDITADO <<<<<");
+                WriteLine($"Nome: {nomes[index]}");
+                WriteLine($"Idade: {idades[index]}");
+                WriteLine();
+                WriteLine("Digite o novo nome:");
+                nomes[index] = ReadLine();
+                WriteLine("Digite a nova idade");
+                idades[index] = Convert.ToInt32(ReadLine());
+                WriteLine("Registro editado com sucesso");
+                WriteLine();
+            }
+            else
+            {
+                WriteLine("Nome não encontrado");
+                WriteLine();
+            }
+        }
+        private static void Excluir()
+        {
+            Clear();
+            WriteLine(">>>>> EDITAR <<<<<");
+            string nome = "";
+            WriteLine("Digite o nome que você deseja editar:");
+            nome = ReadLine();
+            int index = nomes.IndexOf(nome); // Posição do nome 
+            if (index != 0)
+            {
+                WriteLine(">>>>> REGISTRO QUE SERÁ EDITADO <<<<<");
+                WriteLine($"Nome: {nomes[index]}");
+                WriteLine($"Idade: {idades[index]}");
+                WriteLine();
+                nomes.RemoveAt(index);
+                idades.RemoveAt(index);
+                WriteLine("Digite a nova idade");
+                idades[index] = Convert.ToInt32(ReadLine());
+                WriteLine("Registro editado com sucesso");
+                WriteLine();
+            }
+            else
+            {
+                WriteLine("Nome não encontrado");
+                WriteLine();
+            }
+        }
+        private static void Listar()
+        {
+            WriteLine();
+            WriteLine(">>>>> LISTAR <<<<<");
+            int pos = 0;
+            foreach (var item in nomes)
+            {
+                WriteLine($"Nome: {item}, idade: {idades[pos]}");
+                pos++;
+            }
+            WriteLine();
+        }
+
+        private static void Gravar()
+        {
+            Clear();
+            WriteLine(">>>>> GRAVANDO DADOS <<<<<");
+            try
+            {
+                StreamWriter pessoasnomes;
+                string arq = @"C:\Users\Aluno\source\repos\ConsoleApp1\ConsoleApp1\nome.txt";
+                pessoasnomes = File.CreateText(arq);
+                foreach (var item in nomes)
+                {
+                    pessoasnomes.WriteLine($"{item}");
+                }
+
+                pessoasnomes.Close();
+                StreamWriter pessoasidades;
+                string arq2 = @"C:\Users\Aluno\source\repos\ConsoleApp1\ConsoleApp1\idade.txt";
+                pessoasidades = File.CreateText(arq2);
+                foreach (var item2 in idades)
+                {
+                    pessoasidades.WriteLine($"{item2}");
+                }
+                pessoasidades.Close();
+            }
+            catch (Exception er)
+            {
+                WriteLine("Erro: " + er.Message);
+                throw;
+            }
+            finally
+            {
+                ForegroundColor = ConsoleColor.Green;
+                WriteLine(">>>>> DADOS GRAVADOS COM SUCESSO <<<<<<");
+                ResetColor();
+            }
+        }
+         private static void Ler()
+            {
+                Clear();
+                WriteLine(">>>>> LENDO DADOS <<<<<");
+                var nome = File.ReadAllLines(@"C:\Users\Aluno\source\repos\ConsoleApp1\ConsoleApp1\nome.txt");
+                for (int i = 0; i < nome.Length; i++) {
+                    nomes.Add(nome[i]);
+                }
+                var idade = File.ReadAllLines(@"C:\Users\Aluno\source\repos\ConsoleApp1\ConsoleApp1\idade.txt");
+                for (int x = 0; x < idade.Length; x++)
+                {
+                idades.Add(Convert.ToInt32(idade[x]));
+                }
+         }        
+    }
+}
+
+
+
+       
