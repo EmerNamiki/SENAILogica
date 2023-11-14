@@ -1,1 +1,19 @@
+using static System.Console;
 
+namespace ConsoleApp1
+{
+    class CalculoIdade
+    {
+        public int calcular(int data)
+        {
+            return DateTime.Today.Year - data;
+        }
+        static void Main(string[] args)
+        {
+            CalculoIdade calcular = new CalculoIdade();
+            WriteLine("Digite o ano do seu nascimento:");
+            int ano = Convert.ToInt32(ReadLine());
+            WriteLine("Sua idade é: {0}", calcular.calcular(ano));
+        }
+    }
+}
