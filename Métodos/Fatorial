@@ -1,0 +1,28 @@
+using static System.Console;
+
+namespace ConsoleApp1
+{
+    class ManipuladorNumero
+    {
+        public long fatorial(long num)
+        {
+            long resultado;
+            if (num == 1)
+            {
+                return  1;
+            }
+            else
+            {
+                resultado = fatorial(num - 1) * num;
+                return resultado;
+            }
+        }
+        static void Main(string[] args)
+        {
+            ManipuladorNumero n = new ManipuladorNumero();
+            WriteLine("Digite um número inteiro");
+            int numero = Convert.ToInt32(Console.ReadLine());   
+            WriteLine("O fatorial do número digitado é: {0}", n.fatorial(numero));  
+        }
+    }
+}
